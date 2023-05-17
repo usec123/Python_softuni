@@ -1,0 +1,10 @@
+MIT License - free for use, no warranty, no responsibility etc.
+Clone- creates a local copy of a repo
+Commit - make changes LOCALLY
+
+Fetch Origin Button - like refresh for changes, allows to pull newer versions of code
+
+Markdown - for README files
+
+Branch - work on side stuff from the code without implementing it to the source code
+

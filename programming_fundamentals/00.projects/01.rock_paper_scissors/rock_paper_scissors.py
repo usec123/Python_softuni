@@ -16,3 +16,4 @@ while True:
             if player_input < 0: player_input = 2
             if player_input == computer_input: print('Player wins!')
             else: print('Computer wins!')
+print('Thank you for playing!')

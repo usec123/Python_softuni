@@ -1,0 +1,38 @@
+from decimal import Decimal
+a = Decimal('0.1')
+b = Decimal('0.1')
+c = Decimal('0.1')
+
+print(a+b+c) => 0.3 (instead of 0.3(0)4)
+
+------------
+string.replace('old', 'new')
+-------------
+bool(var) # returns False if var == None, '', 0, []
+-------------
+set(list) => returns a sorted list with unique elements only
+
+===============================================
+ADDITIONAL DATA TYPES
+===============================================
+
+list[]
+    mutable (list[i] = var WORKS)
+tuple()
+    immutable
+set{}
+    unordered (changes ever time you create it)
+    unindexed
+    set(list) => removes dublicates
+dict{}
+    {key:value, key:value ...}
+    dict[key] => returns value
+    del dict[key] => deletes key:value
+    for key, value in dict.items()
+
+list(map(TYPE, input().split(' '))) => returns list of TYPE variables (like Split(", ").Select(int.Parse).ToArray() in C#)
+
+str.count('.') => finds how many '.'s there are in str
+
+sum(len(word) for word in list) => like a for loop
+

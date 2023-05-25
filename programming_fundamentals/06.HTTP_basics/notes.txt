@@ -1,0 +1,28 @@
+request:
+	forms:
+		# <form action="home.html"> - sends to home.html
+		- action - where should the info be sent?
+		- method :
+			~ get - retrieve a resource | data gets sent through URL 
+			~ post - create/store a resource | data gets sent through HTTP request
+			~ put - update(replace) a resource
+			~ delete - delete(remove) a resource
+			(PART OF CRUD [Create Read Update Delete] OPERATIONS)
+			~ patch - update resource partially (modify)
+			~ head - retrieve the resource's headers
+response:
+	200 OK
+	201 Created
+	204 No Content (nothing to return)
+	301/302 Moved
+	400 Bad Request (invalid/syntax error)
+	401/403 Unauthorized
+	404 Not Found
+	409 Conflict
+	500/503 Server Error
+	
+	Groups
+	200+ - OK
+	300+ - Redirect
+	400+ - Request Error
+	500+ - Server Error

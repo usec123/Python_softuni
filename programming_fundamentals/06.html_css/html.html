@@ -1,0 +1,87 @@
+<!-- main structure can be auto-generated with ! + tab -->
+
+<!-- DOCTYPE AND HTML TAGS ARE A MUST -->
+<!DOCTYPE html>
+<html>
+
+<head> <!-- contains important stuff thats usually not visible on the page -->
+    <link rel="stylesheet" href="css.css">
+    <title>asdd</title>
+    <meta charset="UTF-8">
+</head>
+
+<body>
+    <!-- navigation -->
+    <nav class="main-navigation">
+        <ul>
+            <li>
+                <a href="https://www.youtube.com">youtube</a>
+            </li>
+            <li>
+                <a href="https://www.twitch.tv">ttv</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- anything between the opening and the closing tag is called an element -->
+    <p><b>BOLD</b> b (obsolete), use <strong>strong</strong> instead! (for search engines)</p>
+    <a href="page.html">other page</a>
+    <p>br is bad</p>
+
+    <!-- instead of using br, we use div -->
+    <div>
+        <!-- img is a self-closing tag. we mark them with / at the end (not required) -->
+        <img src="assets/uamee_logo.png" alt="uamee logo"/>
+    </div>
+    <div>
+        <img src="assets/uamee_logo.png" alt="uamee logo"/>
+        <!-- alt shows if image can't load and it helps search engines -->
+    </div>
+    
+    <!-- ordered list -->
+    <h3>Ordered list:</h3>
+    <ol>
+        <!-- span is used to select part of a text -->
+        <li><span style="color:red">First</span> element</li>
+        <li>Second element</li>
+        <li>Third element</li>
+    </ol><br>
+
+    <h3>Unordered list</h3>
+    <ul>
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+    </ul><br>
+
+    <h3>Nested Lists</h3>
+    <ol>
+        <li>
+            Element 1
+            <ul>
+                <li>Element 1.1</li>
+                <li>Element 1.2</li>
+            </ul>
+        </li>
+        <li>Element 2
+            <ol>
+                <li>Element 2.1</li>
+                <li>Element 2.2</li>
+                <li>Element 2.3</li>
+                <li>Element 2.4</li>
+                <li>Element 2.5</li>
+            </ol>
+        </li>
+    </ol>
+    <br>
+    <section class="color-section">
+        <div class="green">green block</div>
+        <div class="blue">blue block</div>
+        <div class="red">red block</div>
+        <div class="purple">purple block</div>
+        <div class="orange">orange block</div>
+    </section>
+</body>
+
+</html>

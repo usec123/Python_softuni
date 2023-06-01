@@ -1,0 +1,6 @@
+main html file is called index.html
+<dl> - description list => <dt> desc title; <dd> desc desc
+
+css
+display: changes how elements are listed (inline, block etc)
+margin: top sides bottom

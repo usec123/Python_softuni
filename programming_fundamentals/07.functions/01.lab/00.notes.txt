@@ -1,0 +1,31 @@
+def func(parameter:type) -> return type:
+    statements
+
+map - goes through all elements and returns all of them
+filter - goes through all elements and returns a part of them
+
+a large comment (''') under a function def acts as a C# summary
+
+def abc(a:int) -> int:
+    '''
+    This is a function. It does something.
+
+    Parameters:
+    a(int):a
+
+    Returns:
+    int
+    '''
+    return a
+
+(check 00.test.py)
+
+return a, b, c will return a tuple of elements
+
+{key:value}.get(key_lookup, default) : returns value of key_lookup if key_lookup in dict, else returns default
+
+x = lambda a: a+10
+print(x(5)) -> 15
+
+add = lambda a,b:a+b
+print(add(3,5)) -> 8

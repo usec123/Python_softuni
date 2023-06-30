@@ -1,0 +1,39 @@
+bit - 0|1
+    true/false
+    +|-
+    on|off
+
+byte = bit*8
+    smallest piece of memory (bits cannot be addressed individually)
+
+kB = 1024 bytes (2^10)
+mB = 1024 kB
+gB = 1024 mB
+tB = 1024 gB
+pB (petibyte) = 1024 tB
+
+KB = 1000 bytes etc.
+
+----------------------------
+counting systems
+
+num = sum ( individual_num * 10 ^  position )
+
+position - counted from R to L, starting from 0
+
+1234 = 1*10^3 + 2*10^2 + 3*10^1 + 4*10^0
+
+num = sum ( individual_num*base^position ) => convert to decimal
+
+division with remainder => from decimal to base n
+
+----------------------------
+bitwise operations
+
+~ - not
+| - or
+& - and
+^ - xor
+
+shift:
+    << | >>

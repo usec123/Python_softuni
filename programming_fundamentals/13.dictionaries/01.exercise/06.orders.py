@@ -1,18 +1,17 @@
 cmd = input()
 
-products_qty = {}
-products_price = {}
+products = {} # prod : [qty,price]
 
 while cmd!='buy':
     cmd = cmd.split()
     
-    products_price[cmd[0]] = float(cmd[1])
-    products_qty[cmd[0]] = \
-        products_qty[cmd[0]] + int(cmd[2])\
-        if cmd[0] in products_qty.keys()\
+    price = float(cmd[1])
+    qty = \
+        products[cmd[0]][0] + int(cmd[2])\
+        if cmd[0] in products.keys()\
         else int(cmd[2])
-    
+    products[cmd[0]] = [qty,price]
     cmd = input()
 
-for item in products_price.keys():
-    print(f'{item} -> {products_price[item]*products_qty[item]:.2f}')
+for item in products.keys():
+    print(f'{item} -> {products[item][1]*products[item][0]:.2f}')

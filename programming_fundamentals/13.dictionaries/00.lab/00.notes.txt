@@ -1,0 +1,28 @@
+dict(key='value') creates a dict with said key and value (key is just as plain text)
+dict([(key,value),(key,value),...])
+dict(zip(keys,values)) where keys,values => lists
+
+d = {
+    key:value,
+    key:value,...
+}
+
+d[key] => value
+d.get(key) => value
+d[key] where key not in keys => KeyError
+d.get(key) where key not in keys => None
+
+dict is mutable => values can be changed
+
+if key in dict - works
+
+methods:
+    clear - removes elements
+    copy - shallow copies
+    pop(key) - removes key:value (arg is required)
+    del dict - deletes dict
+    del dict[key] - deletes key:value pair from dict
+    ret = dict.setdefault(key,value) - sets default key:value; ret = value
+    dict.update(other_dict) - adds key:value pairs from other_dict to dict
+
+binary search - splitting SORTED array and looking at middle element

@@ -1,0 +1,1 @@
+print(''.join([x * len(x) for x in input().split()]))

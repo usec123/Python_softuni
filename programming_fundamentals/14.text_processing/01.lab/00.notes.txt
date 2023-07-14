@@ -1,0 +1,14 @@
+diff between ascii and unicode:
+    ascii - 
+        128 symbols,
+        7-bit system,
+        mostly english
+    unicode -
+        100,000+ symbols,
+        UTF-8/16/32 systems (different length),
+        any lang
+
+methods:
+    starts/endswith
+    isalnum (is alphanumerical)
+    isalpha (is alphabetical)

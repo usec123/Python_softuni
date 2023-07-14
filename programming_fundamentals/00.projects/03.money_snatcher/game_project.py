@@ -6,39 +6,39 @@ import sys
 pygame.init()
 
 # Set up the game window
-width = 800
-height = 600
+width = 1600
+height = 900
 window = pygame.display.set_mode((width, height))
-pygame.display.set_caption("Крадеца на стотачки")
+pygame.display.set_caption("Pac-Man eater")
 
 # Load the player image
-player_image = pygame.image.load("00.projects/03.money_snatcher/player.png")
+player_image = pygame.image.load("00.projects/03.money_snatcher/assets/ghost.png")
 player_size = player_image.get_rect().size
 player_x = width // 2 - player_size[0] // 2
 player_y = height - player_size[1] - 10
-player_speed = 5
+player_speed = 10
 
 # Load the item image
-item_image = pygame.image.load("00.projects/03.money_snatcher/item.png")
+item_image = pygame.image.load("00.projects/03.money_snatcher/assets/pacman.png")
 item_size = item_image.get_rect().size
 item_x = random.randint(0, width - item_size[0])
 item_y = -item_size[1]
-item_speed = 3
+item_speed = 6
 
 # Set up the score
 score = 0
-font = pygame.font.Font(None, 36)
+font = pygame.font.SysFont('Times New Roman', 24)
 
 # Set up game over message
 game_over_font = pygame.font.Font(None, 72)
-game_over_text = game_over_font.render("Време е да влизаш в затвора!", True, (255, 0, 0))
+game_over_text = game_over_font.render("The Pac-Men have escaped", True, (255, 0, 0))
 game_over_text_pos = (width // 2 - game_over_text.get_width() // 2, height // 2 - game_over_text.get_height() // 2)
 
 # Set up new game button
 button_font = pygame.font.Font(None, 36)
-button_text = button_font.render("New Game", True, (0, 0, 255))
+button_text = button_font.render("New Game", True, (0, 0, 0), (50, 255, 50))
 button_text_pos = (width // 2 - button_text.get_width() // 2, height // 2 + game_over_text.get_height() // 2 + 20)
-button_rect = pygame.Rect(button_text_pos[0], button_text_pos[1], button_text.get_width(), button_text.get_height())
+button_rect = pygame.Rect(button_text_pos[0]-5, button_text_pos[1]-5, button_text.get_width()+10, button_text.get_height()+10)
 
 # Game states
 STATE_PLAYING = 1
@@ -99,15 +99,15 @@ while running:
     window.blit(item_image, (item_x, item_y))
 
     # Draw the score
-    score_text = font.render("Откраднах: " + str(score) + '00', True, (255, 0, 0))
-    window.blit(score_text, (10, 10))
+    score_text = font.render("Pac-Men eaten: " + str(score), True, (0, 150, 0))
+    window.blit(score_text, (width-10-score_text.get_width(), 10))
 
     if state == STATE_GAME_OVER:
         # Draw the game over message
         window.blit(game_over_text, game_over_text_pos)
 
         # Draw the new game button
-        pygame.draw.rect(window, (0, 0, 255), button_rect)
+        pygame.draw.rect(window, (50, 255, 50), button_rect)
         window.blit(button_text, button_text_pos)
 
     # Update the display

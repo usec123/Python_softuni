@@ -1,5 +1,10 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
+
+# python manage.py runserver
+
+# ctrl c - stop server
+
 import os
 import sys
 

@@ -5,11 +5,14 @@ guess = None
 attempts = 0
 
 while guess != NUMBER:
-    try: guess = int(input('Guess the number (1-100): '))
+    try:
+        guess = int(input('Guess the number (1-100): '))
     except ValueError: 
         print('You must enter a number!')
         continue
+    
     attempts += 1
+    
     if guess > NUMBER: print('Too High!')
     elif guess < NUMBER: print('Too Low!')
     else:

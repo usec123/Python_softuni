@@ -1,4 +1,4 @@
-# QUEUE
+# QUEUE - FIFO
 
 from collections import deque
 
@@ -16,7 +16,7 @@ print(queue)
 print(queue.popleft())
 print(queue)
 
-# STACK
+# STACK - FILO
 
 stack = []
 stack.append(1)

@@ -1,0 +1,5 @@
+numbers_dictionary:
+Very nicely written code, easy to understand variable names and overall a very pleasant code to debug and review. The code works (no wonder). I have nothing bad to say about this code.
+
+email_validator:
+Once again, very nicely written code, nice use of constants and, most importantly and yet least surprisingly, it works. Once again, I have nothing bad to say about this code, very nicely structured and a simple approach to the problem.

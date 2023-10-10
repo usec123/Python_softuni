@@ -1,0 +1,9 @@
+numbers_dictionary:
+Really well-structured and clear code with no real downsides. Very easy to read and debug. The code itself works and I can't really say anything bad about it.
+Just a tip- comments immensely help others debug. While they really aren't needed here, as we all have the solutions and requirements, they make debugging a breeze.
+
+email_validator:
+Once again, really well-structured and easy to read code which, rather obviously, works. Nice use of constants. A perfectly executed, simple approach to the problem.
+
+overall:
+Very clean, well-organised and working code with descriptive variable names (as much as the posed problems allow) and simple ways of tackling those problems.

@@ -1,0 +1,6 @@
+nums = list(map(int,input().split()))
+sum_negative = sum(list(map(lambda x: x if x < 0 else 0, nums)))
+sum_positive= sum(list(map(lambda x: x if x > 0 else 0, nums)))
+print(sum_negative)
+print(sum_positive)
+print(f'The {"negatives" if abs(sum_negative) > sum_positive else "positives"} are stronger than the {"negatives" if abs(sum_negative) < sum_positive else "positives"}')

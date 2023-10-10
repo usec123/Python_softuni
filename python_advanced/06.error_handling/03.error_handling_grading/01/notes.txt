@@ -1,0 +1,8 @@
+numbers_dictionary:
+Very nicely written and well-formatted code. Everything is clear, and the readability is amazing. The messages are a bit extended from what was required in the task description, but that could never be a bad thing. The code (obviously) works. Overall, very nicely written and formatted.
+
+email_validator:
+Once again, very nicely written and well-formatted code, containing some extra error messages, which are always a plus. A nice combination of both regex and checking the string themselves which, while it does work, is a bit more of a messy approach than just using regex, but this is made up for by the amazing readability.
+
+overall:
+Very clean and undoubtably working code with amazing readability and I don't have anything bad to say about it.

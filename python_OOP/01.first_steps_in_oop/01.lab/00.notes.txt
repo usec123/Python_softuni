@@ -1,0 +1,19 @@
+namespace - where vars are defined
+scope - where vars can be accessed
+
+default namespaces/scopes - built-in, global, local
+
+enclosing scope - scope that surrounds local scope (function)
+
+keywords:
+    global - imports global var in local scope
+    nonlocal - import var from enclosing scope
+
+list - ref type
+
+--- OOP ---
+
+Attributes:
+    - Data Attributes:
+        ~ all data passed in init/setters
+    - Methods

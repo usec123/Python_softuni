@@ -1,0 +1,16 @@
+package - file consisting of Python code
+
+a package contains __init__.py file and many .py files
+
+to use modules, they must be imported first
+
+to create requirements file -> in terminal:
+    pip freeze > requirements.txt
+
+to install requirements file:
+    pip install -r requirements.txt
+
+
+for packages:
+    when importing program execution always passes through __init__.py file first
+    __init__.py is used to limit user's access to certain functions only

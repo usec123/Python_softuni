@@ -1,17 +1,18 @@
 from .user import User
 from .library import Library
 
+
 class Registration:
     def __init__(self) -> None:
         pass
     
-    def add_user(self, user:User, library:Library):
+    def add_user(self, user: User, library: Library) -> str:
         if user not in library.user_records:
             library.user_records.append(user)
         else:
             return f'User with id = {user.user_id} already registered in the library!'
     
-    def remove_user(self, user:User, library:Library):
+    def remove_user(self, user: User, library: Library):
         if user in library.user_records:
             library.user_records.remove(user)
         else:

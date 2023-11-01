@@ -1,0 +1,12 @@
+__something__() - dunder/magic method
+__str__ - str(...)
+__add__ - ... + ...
+__repr__ - like __str__, but for terminals
+
+data attributes:
+    - methods
+    - data attributes:
+        ~ instance attributes:
+            - defined in __init__
+        ~ class attributes:
+            - defined in class namespace

@@ -1,0 +1,20 @@
+static methods:
+    - declared with @staticmethod decorator
+    - no information about the instance or class
+    - cannot modify object or class state
+    - used for better readability
+    - can be called from instances and classes alike
+    - doesn't take self as an argument
+
+class methods:
+    - declared with @classmethod decorator
+    - first arg is cls - class
+    - bound to the class, and not to the instance
+    - can modify class state that will apply to all instances
+    - used to create new instances
+    - ex:
+        @classmethod
+        def create_adult(cls, name):
+            return cls(name, age=18)
+
+factory - anything that creates an instance (factory methods => return instance)

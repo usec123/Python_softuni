@@ -1,0 +1,25 @@
+__add__ = +
+__sub__ = -
+__mul__ = *
+__floordiv__ = //
+__truediv__ = /
+__pow__ = **
+
+__lt__ = <
+__le__ = <=
+__eq__ = ==
+__ne__ = !=
+__gt__ = >
+__ge__ = >=
+
+if __gt__ and __ge__ are defined, we don't need __lt__ and __le__
+
+--- ABSTRACTION ---
+from abc import ABC, abstractmethod
+
+class inherits ABC, and abstract methods get @abstractmethod decorator
+all classes that inherit the abstract class must have all its abstract methods or they will raise an exception
+abstract classes must have at least 1 abstract method, or they will not be considered as abstract
+
+__getitem__(self, index):
+    gets called when when instance[index] is executed

@@ -1,0 +1,40 @@
+SOLID:
+    S - Single responsibility
+    O - Open/Closed
+    L - Liskov substitution
+    I - Interface segregation
+    D - Dependency inversion
+
+Single responsibility:
+    - a class should only be responsible for one thing, and shouldn't have methods that do entirely different things
+    - can be avoided by splitting the class into two or more classes
+
+Open/Closed:
+    - software should be Open for extensions, but Closed for modifications
+    - functionality should be extended by adding a new class, not my modifying the old one
+
+Liskov substitution:
+    - derived classes must be completely substitutable for their base types
+    - derived classes should only extend functionality, not remove it
+    - requires creating correct hierarchies so that classes can use polymorphism
+
+Interface segregation:
+    - a client shouldn't depend on methods it does not use
+    - best way to implement this is through multiple inheritance
+    - this is done using Mixins - similar to C# interfaces
+
+Dependency inversion:
+    - protecting code by making it independent of volatile, fragile and uncontrollable factors
+    - depend on abstractions, not on concretions
+    - basically don't make it so that a function needs arguments for calling another function
+
+Design smell:
+    - if the code is checking the type of class
+    - overriden methods change their behaviour
+    - overriding a method with an empty one
+    - base class depends on its subtypes
+
+Dependency injection:
+    - decreases coupling between a class and its dependency
+    - can be applied to legacy code because it doesn't require any change in code behaviour
+    - 

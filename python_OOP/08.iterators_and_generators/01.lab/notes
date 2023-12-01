@@ -1,0 +1,23 @@
+--- Iterators ---
+in order for a class to have an iterator, we must implement:
+    - __iter__()
+    - __next__()
+
+this is called Iterator Protocol
+
+you can iterate through some types ONLY ONCE (filter)
+
+for uses this concept with a while loop to function:
+    a = iter(range(n))
+    while True:
+        try:
+            print(next(a))
+        except StopIteration:
+            break
+
+for-loop handles StopIteration exception
+
+--- Generators ---
+generates items based on given parameters
+uses yield to return results
+    - yield works like return, but it saves the location of the line of code, and the next time the function is called it continues from there

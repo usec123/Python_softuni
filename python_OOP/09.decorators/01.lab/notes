@@ -1,0 +1,24 @@
+decorator - a function that returns a function
+
+in all cases wrapper = decorated function
+
+
+if decorator doesn't take arguments:
+
+    def name(function):
+        def wrapper(*args, **kwargs):
+            ...
+        return wrapper
+
+
+if decorator takes arguments:
+
+    def name(decorator_args):
+        def decorator(function):
+            def wrapper(*args, **kwargs):
+                ...
+            return wrapper
+        return decorator
+
+
+__call__ method makes instances of a class callable (instance())

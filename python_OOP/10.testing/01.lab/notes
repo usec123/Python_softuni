@@ -1,0 +1,18 @@
+python library - unittest
+
+tests are built to be more CONCRETE
+
+triple A pattern:
+    - Arrange - create input and expected output
+    - Act - insert and execute input
+    - Assert - compare output to expected output
+
+
+Unit testing:
+    - individual units/components of a software are tested
+    - the purpose is to check if every unit of a software performs as expected
+
+Test ficture - the place where tests are executed
+Test case - checking if a unit works under specific conditions
+Test suite - a collection of test cases
+Test runner - sets up the execution of the tests and provides the outcome to the user

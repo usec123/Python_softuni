@@ -1,0 +1,3 @@
+<!DOCTYPE html> - not only declares document type as html, but also speeds up the browser results by declaring that the code is correct
+
+'lorem' shorthand - generates lorem ipsum ...

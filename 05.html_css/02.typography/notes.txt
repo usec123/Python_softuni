@@ -1,0 +1,6 @@
+general font families:
+    - serif
+    - sans-serif
+    - monospace
+    - cursive
+    - fantasy

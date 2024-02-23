@@ -1,0 +1,12 @@
+<textarea name rows cols></textarea> - big input
+
+<fieldset>
+  <legend>...</legend>
+  <option>...
+</fieldset>
+
+input action - you can input link (https://google.com/search) and it will go to that link after adding vars at the end [?fieldname=value&newfieldname=newvalue]
+
+label [for] => input [id]
+
+attributes - required, placeholder

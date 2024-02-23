@@ -1,0 +1,19 @@
+@media screen and (width <= 600px) {
+    body{
+        width: 100vw;
+    }
+    
+    .choose-us ul {
+        flex-direction: column;
+    }
+
+    .header-title h1 {
+        font-size: 5vw;
+    }
+
+    .team-description-wrapper ul li img {
+        width: 75%;
+        aspect-ratio: 0.8;
+        height: auto;
+    }
+}

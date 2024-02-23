@@ -1,0 +1,213 @@
+/* 18px */
+@import url(https://fonts.googleapis.com/css2?family=Karla&display=swap);
+
+/* big title - 90px, other - 16px */
+@import url(https://fonts.googleapis.com/css2?family=Cormorant+Infant&display=swap);
+
+:root {
+    --cormorant: Cormorant;
+    --karla: Karla;
+}
+
+body{
+    border: 3px solid white;
+    display: flex;
+    justify-content: center;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.site>img {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 48.3rem;
+    margin: 0;
+    padding: 0;
+    top: -1px;
+    left: -1px;
+}
+
+header {
+    background-size: contain;
+    background-repeat: no-repeat;
+    padding: 1.4rem 3rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 3rem;
+}
+
+nav div:last-of-type {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+    gap: 5rem;
+    flex-grow: 2;
+}
+
+nav div img {
+    height: 4rem;
+}
+
+nav div a{
+    text-decoration: none;
+    color: white;
+}
+
+header>div {
+    margin-top: 15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header>div h1{
+    color: white;
+    font-size: 90px;
+    font-family: cormorant;
+}
+
+header>div p{
+    color: white;
+    margin: 9rem 0;
+    font-size: 18px;
+    font-family: karla;
+}
+
+main>div:nth-child(2n+1){
+    background-color: #F8F0E9;
+}
+
+main>div:nth-child(2n){
+    background-color: #E14747;
+}
+
+.customer-testimonial{
+    padding: 2rem 18rem 7rem;
+}
+
+.customer-testimonial p {
+    margin-bottom: 3rem;
+    font-size: 18px;
+    font-family: karla;
+}
+
+.customer-testimonial h2 {
+    font-size: 90px;
+    font-family: cormorant;
+    font-weight: normal;
+}
+
+.support {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.support h3 {
+    color: white;
+    font-family: cormorant;
+    font-size: 16px;
+}
+
+.support p {
+    color: white;
+    font-family: karla;
+    font-size: 18px;
+}
+
+.understand {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 4rem;
+    gap: 2rem;
+}
+
+.understand * {
+    width: 40%;
+}
+
+.understand h2 {
+    font-family: cormorant;
+    font-size: 90px;
+    font-weight: normal;
+    text-align: center;
+}
+
+.understand p {
+    font-family: karla;
+    font-size: 18px;
+}
+
+.understand button {
+    width: 10em;
+    height: 2rem;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 0.2rem;
+    margin-top: 2rem;
+}
+
+.find-guide {
+    padding: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4rem;
+}
+
+.find-guide h2 {
+    color: white;
+    font-family: cormorant;
+    font-size: 90px;    
+}
+
+.find-guide p {
+    color: white;
+    font-family: karla;
+    font-size: 18px;
+}
+
+.find-guide a {
+    color: black;
+    text-decoration: none;
+    border-radius: 3rem;
+    padding: 1rem 2rem;
+    background-color: #FAD87A;
+}
+
+footer {
+    background-color: #352B2A;
+    padding: 2rem 5rem;
+}
+
+footer img {
+    height: 2.5rem;
+}
+
+footer p:first-of-type {
+    color: white;
+    width: 25rem;
+}
+
+footer p:last-of-type {
+    color: #493E39;
+}
+
+footer *:not(:first-child) {
+    margin-top: 2rem;
+}

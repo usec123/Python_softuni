@@ -1,0 +1,8 @@
+parent props:
+	justify-content - adjust items on the main axis
+	align-items - adjust items on the cross axis
+	gap
+	
+child props:
+	order
+	flex-grow/shrink/basis

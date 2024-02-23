@@ -1,0 +1,14 @@
+@media ([type] and <optional>) (condition in brackets)
+
+[type] - screen, print, projection
+
+conditions:
+    min/max-width
+    orientation - landscape/portrait
+    hover: hover - device can hover
+    pointer: fine - mouse
+
+and - combine conditions
+, - combine queries
+not
+only

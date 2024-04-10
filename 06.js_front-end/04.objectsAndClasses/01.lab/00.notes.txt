@@ -1,0 +1,33 @@
+dynamic property on init
+const propName = 'test';
+const value = 'tested';
+const obj = {
+    [propName]: value
+}
+ --- => { test: 'tested' }
+
+const obj2 = {
+    propName,
+    value,
+}
+ --- => { propName: 'test' (value of propName var), value: 'tested' }
+
+get keys/values/... => Object.keys(obj);
+get kvp => Object.entries(obj2); => [ [ 'propName', 'test' ], [ 'value', 'tested' ] ]
+Object.fromEntries(entries);
+
+const data = JSON.stringify(obj) => string repr of obj as JSON data
+const newObj = JSON.parse(data) => object
+
+obj.func && obj.func() => boolean operators work left to right, so if obj.func exists it will be called, else the statement will stop before func call
+
+
+const { age: personAge, name, ...rest } = { name: 'Gosho', age: 24, height: 168 } => const personAge = age = 24, name = 'Gosho', rest = { height: 168 }
+
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+}
+const person = new Person('Gosho', 'Goshev')

@@ -1,0 +1,26 @@
+DOM - Document Object Model
+
+DOM gives access to:
+    window
+    navigator
+    screen
+    location
+    history
+    document
+
+console.dir() - like log() but better for objects
+
+textContent - changes text inside of an element
+innerHTML - changes text inside of an element AND PARSES IT TO HTML (if possible)
+
+<div>
+  text
+  <p>para</p>
+</div>
+
+text - node (div.childNodes)
+
+.childNodes => NodeList
+.children => HTMLCollection
+
+live collection - directly modifies DOM tree

@@ -1,0 +1,88 @@
+FUNCTION EXAMPLE
+
+INTO => stores result in variable
+
+CREATE OR REPLACE FUNCTION fn_full_name(varchar, varchar)
+RETURNS varchar
+AS
+$$
+	DECLARE
+		first_name ALIAS FOR $1;
+		last_name ALIAS FOR $2;
+		greeting varchar;
+
+	BEGIN
+		greeting := 'Hello';
+		RETURN concat(greeting, ' ', first_name, ' ', last_name);
+	END;
+$$
+LANGUAGE plpgsql;
+
+SELECT * FROM fn_full_name('Gosho', 'Toshev'); -- Hello Gosho Toshev
+
+CREATE OR REPLACE FUNCTION fn_get_name_len(name varchar)
+RETURNS int AS
+$$
+	BEGIN
+		RETURN length(name);
+	END;
+$$
+LANGUAGE plpgsql;
+
+SELECT * FROM fn_get_name_len('Koko'); -- 4
+
+CREATE OR REPLACE FUNCTION fn_full_name(varchar, varchar)
+RETURNS varchar
+AS
+$$
+	DECLARE
+		first_name ALIAS FOR $1;
+		last_name ALIAS FOR $2;
+		full_name varchar;
+
+	BEGIN
+		IF first_name IS NULL AND last_name IS NULL THEN
+			full_name := NULL;
+		ELSIF first_name IS NULL THEN
+			full_name := last_name;
+		ELSIF last_name IS NULL THEN
+			full_name := first_name;
+		ELSE
+			full_name := concat(first_name, ' ', last_name);
+		END IF;
+		RETURN full_name;
+	END;
+$$
+LANGUAGE plpgsql;
+
+SELECT * FROM fn_full_name('Gosho', 'Toshev');
+
+-- no declare block and IN/OUT variables
+
+CREATE OR REPLACE FUNCTION fn_get_city_id(IN city_name varchar, OUT city_id int, OUT status int)
+AS
+$$
+	BEGIN
+		SELECT id FROM countries WHERE country_name = city_name INTO city_id;
+		status := 100;
+	END;
+$$
+LANGUAGE plpgsql;
+
+SELECT fn_get_city_id('Bulgaria'); -- (22,100)
+SELECT * FROM fn_get_city_id('Bulgaria'); -- city_id = 22, status = 100
+
+-- you can return tables
+
+CREATE OR REPLACE FUNCTION fn_get_countries()
+RETURNS TABLE (id int, name varchar) AS
+$$
+	BEGIN
+		RETURN QUERY(SELECT * FROM country);
+	END;
+$$
+LANGUAGE plpgsql;
+
+SELECT * FROM fn_get_countries();
+
+-- procedures are executed using CALL

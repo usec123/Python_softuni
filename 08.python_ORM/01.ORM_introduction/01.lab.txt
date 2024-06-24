@@ -39,3 +39,5 @@ settings.py
 	name => db name
 	user => username
 	password => password
+	
+migrate before running for first time!

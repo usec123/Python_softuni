@@ -1,0 +1,33 @@
+Django Models
+	define the structure of stored data (fields, constraints etc.)
+	model = db table, instance = db entry
+	subclasses of django.db.models.Model
+	
+	field naming conventions:
+		name cannot contain __ (dunder)
+		name cannot end in _
+		
+	field types
+		CharField(max_length=n) => varchar (< ~200 chars)
+		IntegerField
+		PositiveIntegerField
+		FloatField => better accuracy
+		DecimalField(max_digits, decimal_places)
+		DateField(auto_now_add=True, auto_now=True) => auto_now_add = timestamp of creation, auto_now = timestamp of last update
+		DateTimeField
+		TimeField
+		BooleanField
+		URLField
+		EmailField
+	
+	constraints
+		null=True/False => allow null values
+		blank=True/False => whether null values are allowed on entry creation in admin panel
+		primary_key=True
+		verbose_name='' => what to display as field name in admin panel
+		choices = [
+			('value saved in db', 'value seen by the user'),
+			...
+		]
+		
+if PK is not specified Django creates an id column automatically

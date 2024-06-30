@@ -1,0 +1,21 @@
+QuerySet
+    translates Python code to SQL queries
+    when Django executes a query on a model it returns either an object or a QuerySet
+    lazy evaluation => queries are executed only once their result is required/accessed
+
+Object Manager
+    class attribute of a model with methods for querying the db
+    default = objects
+    methods:
+        all()
+        first()/last()
+        get(**kwargs) => single obj that matches the given arg (multiple objects => Model.MultipleObjectsReturned error | no objects => Model.DoesNotExist error)
+        create(**kwargs)
+        filter(**kwargs)
+        exclude(**kwargs) => opposite of filter()
+        order_by(*fields) => orders previously returned querysets
+
+Creating records in db
+    ModelClass.objects.create(**kwargs)
+        OR
+    create instance of ModelClass, then instance.save()

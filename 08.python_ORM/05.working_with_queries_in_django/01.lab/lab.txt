@@ -1,0 +1,26 @@
+methods
+    filter(field_name=value) => returns QuerySet of matching entries
+    exclude() => like filter, but returns everything that's NOT matching
+    order_by(field_name: str, second_field) => last (after filter, exclude etc.) (for desc => '-field_name')
+    count() => returns len of QuerySet without storing its values locally (length is calculated in the db)
+    get(**kwargs) => returns SINGLE object matching the criteria (usually used with id because id is unique)
+
+lookup keys
+    used to specify conditions or filters
+    to use => field_name__lookup_key=value
+    can be chained
+
+    __startswith
+    __lt/lte/gt/gte
+    __exact => default
+    __iexact => case-insensitive
+    __icontains
+    __range => in range (inclusive)
+    __year => gets year from datetime
+
+bulk methods
+    used to insert/update/delete objects simultaneously => optimization
+
+    bulk_create(list)
+    update/delete => chained with filter()
+    bulk_update(list, ['fields'])

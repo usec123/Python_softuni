@@ -1,0 +1,15 @@
+normalization
+    promotes consistency
+        ensures that updates are made in one place only
+        ensures that changes propagate correctly throughout the db
+            avoids duplicates and conflicts
+    easier to maintain
+        easier to scale and change the db
+
+related name
+    specify a name for the reverse relationship
+    default name = lowercase name of the model with the FK in plural + '_set'
+
+one-to-many relationship
+    field = models.ForeignKey(to=Model, on_delete=models.CASCADE/SET_NULL/RESTRICT/PROTECT, related_name?)
+        [RESTRICT = cannot delete reference object unless referenced object has ON DELETE CASCADE and can be deleted via CASCADE, protect = cannot delete reference object]

@@ -52,13 +52,13 @@ queries for model relationships
         used with FK and OneToOneField
         used from child model
 
-        Model.objects.select_related('related_name')
+        Model.objects.select_related(lookup)
 
     prefetch_related()
         used with ManyToManyField, reverse FK and reverse OneToOneField
         helps to avoid the N+1 query problem
 
-        Model.objects.prefetch_related('related_name')
+        Model.objects.prefetch_related(lookup)
    
 query-related tools
     Q object

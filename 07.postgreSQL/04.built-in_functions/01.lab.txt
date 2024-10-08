@@ -1,0 +1,76 @@
+string funcs
+	CONCAT
+	CONCAT_WS => concatenate with separator (first arg, skips null values)
+	SUBSTRING(string, start, len)/(string FROM start FOR len) => SELECT SUBSTRING('SoftUni', 5, 3)/('SoftUni' FROM 5 FOR 3) => 'Uni'
+	LEFT/RIGHT(string, count)
+	REPLACE(string, pattern, replacement)
+	TRIM(string)/(LEADING FROM string)/(TRAILING FROM string)
+	LOWER/UPPER/REVERSE
+	REPEAT(string, count)
+	LENGTH/CHAR_LENGTH
+	BIT_LENGTH
+	
+math
+	PI
+	DIV => int division
+	FLOOR/CEILING
+	ROUND(num, precision) (2 => 2 after .; -1 => 1 before .)
+	TRUNC(num, precision)
+	
+date/time
+	EXTRACT(part FROM date) (second, minute, hour, day, week, month, year)
+	AGE(first_date, second_date) => difference
+	NOW()
+	CURRENT_DATE/CURRENT_TIME
+	TO_CHAR(date, format) => formats date
+
+wildcards
+	% - 0,1,*
+	_ - 1
+	ESCAPE 'string' => treat chars from string as normal
+	
+	
+/* query history */
+
+-- 1
+SELECT title FROM books
+WHERE LEFT(title, 3) = 'The'
+ORDER BY id;
+
+-- 2
+UPDATE books
+SET title = REPLACE(title, 'The', '***')
+WHERE LEFT(title, 3) = 'The';
+
+SELECT title FROM books
+WHERE LEFT(title, 3) = '***'
+ORDER BY id;
+
+-- 3
+SELECT id, side*height/2 AS "area"
+FROM triangles
+ORDER BY id;
+
+-- 4
+SELECT title, ROUND(cost,3)
+FROM books
+ORDER BY id;
+
+-- 5
+SELECT
+	first_name,
+	last_name,
+	EXTRACT(YEAR FROM born)
+FROM authors;
+
+-- 6
+SELECT
+	last_name AS "Last Name",
+	TO_CHAR(born, 'DD (Dy) Mon YYYY') AS "Date of Birth"
+FROM authors;
+
+-- 7
+SELECT title
+FROM books
+WHERE title LIKE '%Harry Potter%'
+ORDER BY id;

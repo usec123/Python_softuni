@@ -1,0 +1,12 @@
+GROUP BY => columns to use aggregate functions on
+
+COUNT ignores NULL
+
+HAVING
+	- requires grouping
+	- filters after aggregation (WHERE filters before aggregation)
+
+CASE
+	WHEN condition THEN result
+[ELSE result]
+END AS "column"

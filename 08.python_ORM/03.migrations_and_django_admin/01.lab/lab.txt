@@ -1,0 +1,45 @@
+migrations
+    files with Python code that automate changes to models in db schema
+
+    cmds
+        makemigrations => check for changes and generate migration file
+			add --empty for empty migration file
+        migrate (app) (migration number / zero) => apply migrations to database (only for app [optional]) (rollback to specified migration [optional] / rollback all migrations)
+        showmigrations (app) => shows all migrations (applied migrations have [X] in front of them)
+        squashmigrations (n) => reduces migrations to less files (up to migration n)
+        sqlmigrate (app) (migration) => returns SQL query for migration
+
+    migrations file contents
+        dependencies = [] # contains previous migrations that the current migration depends on
+
+when migrating changes with date/datetime fields when prompted for default values
+    1 => datetime.now()
+
+admin panel customizations
+    by overriding str we can change the way objects are displayed (def __str__...)
+    when using classes to register
+        list_display = [] # arr of strings with fields to display
+        list_filter = [] # arr of strings with fields to filter by
+        search_fields = [] # ~ fields to search from
+        fields = [('first_name', 'last_name'), 'email_address'] # groups first and last name fields when creating entry
+		date_hierarchy = 'field' # allows filtering by given date field
+		fieldsets => categorize and group fields
+		
+	e.g.
+		class ModelAdmin(admin.ModelAdmin):
+			list_display = ('first_name', 'last_name') # will only show first and last name
+			list_filter = ('first_name', 'last_name') # can only filter by first and last name
+			search_fields = ('first_name', 'last_name') # can only search by first and last name
+			fields = [
+				('first_name', 'last_name')
+			] # will group names together when creating new instance of model
+			date_hierarchy = 'birth_date' # allows filtering by birth date
+			fieldsets = [
+				('Names', {
+					'fields': ('first_name', 'last_name')
+				}),
+				('General Info', {
+					'fields': ('birth_date')
+				})
+			] # puts first and last name in 'Names' category and birth_date in 'General Info'
+		

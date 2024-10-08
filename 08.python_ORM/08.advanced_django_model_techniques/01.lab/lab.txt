@@ -1,0 +1,91 @@
+validators
+    - allows data validation
+    - data must meet specific requirements to be saved
+    - common built-in validators:
+        Min/Max Value/Length Validator (limit_value, message=None)
+        RegexValidator
+    
+    - raise ValidationError
+    - validators work on Django level
+    - validators are executed when the full_clean() method is called
+    
+    from django.core.validators import ...
+
+    class Employee(models.Model):
+        first_name = models.CharField(max_length=100,
+            validators=[
+                MinLengthValidator(2, message='First name should be at least 2 chars long')
+                ]
+            )
+
+    - custom validators
+    from django.core.exceptions import ValidationError
+
+    def validate_even(value):
+        if value%2!=0: raise ValidationError('Value must be an even number!')
+
+    class ...
+        field = ...(
+            validators=[
+                validate_even
+            ],
+        )
+
+Meta class
+    - allows you to provide additional information about a model
+    - used to specify model-level options like:
+        - db table name
+        - default ordering
+        - unique constraints
+        - abstract
+        - proxy
+    - properties:
+        abstract
+        proxy
+        db_table => overrides default db table name
+        ordering => defines default order when retrieving collections of model objects
+        unique_together => set multiple unique fields
+        verbose_name => define a human-readable name for the object
+        verbose_name_plural => defines a plural name for the object (default=verbose_name+'s')
+    - when defining meta class it automatically overrides parent's meta class
+        - to prevent this and override only some of the fields class meta should inherit parent's meta class
+
+            class BaseModel(models.Model):
+                class Meta:
+                    ...
+                    verbose_name = 'test'
+
+
+            class ChildModel(BaseModel):
+                class Meta(BaseModel.Meta):
+                    verbose_name = 'testing
+
+indexing
+    - allows for faster results when searching by column
+
+    ... = models.CharField(db_index=True)
+    OR
+    class Meta:
+    indexes = [
+        models.Index(fields=['...', '....'], name='..._index)
+    ]
+
+    - by default dbs create an index for PK
+
+mixins
+    - to use mixins only one class at most can have default PK, others must be defined to something other than id
+
+custom validators
+	class CustomValidator:
+		def __init__(self, message: str):
+			self.message = message
+		
+		def __call__(self, value):
+			...
+		
+		def deconstruct(self):
+			return (
+				path to class (e.g. main_app.validators.CustomValidator),
+				(args),
+				{kwargs}
+			)

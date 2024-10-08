@@ -1,0 +1,90 @@
+custom managers
+    - manager - interface for performing query operations
+    - default = objects
+    - used for custom methods for retrieving data
+    - inherits models.Manager
+
+    class EmployeeManager(models.Manager):
+        def by_job_title(self, job_title): # self is used to reference the custom manager
+            return self.filter(job_title=job_title)
+    
+    class Employee(models.Model):
+        ...
+
+        objects = EmployeeManager()
+
+    Model.manager.method(args)
+    (e.g. Employee.objects.by_job_title('Software Engineer'))
+
+annotation
+    alternate solution =>
+        Model.objects.all().only('field1', 'field2')
+        NOTE: if an extra field is needed it will WORSEN performance
+
+        Model.objects.all().values('field1', 'field2')
+        returns queryset of dicts
+
+    aggregate
+        Model.objects.aggregate(field_name=fn('field')) => { 'field_name' : res }
+        (fn - aggregate function (Count, Avg, Min, Max, ...))
+
+        aggregate is a terminating function => cannot write anything after it (like .order_by)
+    
+    annotate
+        allows you to add calculated fields to your query results
+        Model.manager.values('field').annotate(res_name=fn('field1')) => 
+        QuerySet[
+            {
+                'field' : value,
+                'res_name' | 'field1__fn' : res
+            },
+            ...
+        ]
+
+        when using values that are not taken from db (e.g. the space between the first and last names)
+            Value(' ')
+            (e.g. full_name=Concat('first_name', Value(' '), 'last_name', output_field=CharField(max_length=40)))
+
+queries for model relationships
+    used to optimize db queries with related objects
+
+    select_related()
+        used with FK and OneToOneField
+        used from child model
+
+        Model.objects.select_related(lookup)
+
+    prefetch_related()
+        used with ManyToManyField, reverse FK and reverse OneToOneField
+        helps to avoid the N+1 query problem
+
+        Model.objects.prefetch_related(lookup)
+   
+query-related tools
+    Q object
+        - used for building complex queries by combining multiple conditions with logical operators
+        - useful for dynamic queries
+
+        AND = &
+        OR = |
+        NOT = ~
+        XOR = ^
+
+        Employee.objects.filter(Q(city__name__istartswith='P') | Q(salary__gte=4000))
+        (gets all employees from cities that start with P or with salary >= 4000)
+        
+        Employee.objects.filter(Q(salary__gte=4000) & ~Q(city__name='Pernik'))
+        (gets all employees with salary>=4000 that are NOT from Pernik)
+
+    F object
+        - allows for executing operations on db level
+        - references a field's value in a query expression without fetching it
+        - used for field comparison and manipulation in the db query
+            ~ comparing the values of two fields
+            ~ updating fields with other fields' values
+
+        Employee.object.all().update(salary=F('salary') + 300)
+
+debugging queries
+    connection.queries
+    Django Debug Toolbar

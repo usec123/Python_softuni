@@ -1,0 +1,170 @@
+-- 1
+CREATE VIEW view_river_info
+AS
+SELECT
+	'The river ' || river_name ||
+	' flows into the ' || outflow ||
+	' and is ' || "length" ||
+	' kilometers long.' AS "River Information"
+FROM rivers
+ORDER BY "river_name";
+
+SELECT * FROM view_river_info;
+
+-- 2
+CREATE VIEW view_continents_countries_currencies_details
+AS
+SELECT
+	cont.continent_name || ': ' || cont.continent_code AS "continent_details",
+	coun.country_name||' - '||coun.capital||' - '||coun.area_in_sq_km||' - km2' AS "country_information",
+	curr.description||' ('||curr.currency_code||')' AS "currencies"
+FROM continents AS cont
+INNER JOIN countries AS coun ON cont.continent_code = coun.continent_code
+INNER JOIN currencies AS curr ON coun.currency_code = curr.currency_code
+ORDER BY "country_information", "currencies";
+
+SELECT * FROM view_continents_countries_currencies_details;
+
+-- 3
+ALTER TABLE countries
+ADD "capital_code" VARCHAR(2);
+
+UPDATE countries
+SET capital_code = LEFT(capital,2);
+
+-- 4
+SELECT SUBSTRING(description, 5)
+FROM currencies;
+
+-- 5
+SELECT SUBSTRING("River Information" FROM '([0-9]{1,4})')
+FROM view_river_info;
+
+-- 6
+SELECT
+	REPLACE(mountain_range, 'a', '@') AS replace_a,
+	REPLACE(mountain_range, 'A', '$') AS replace_A
+FROM mountains;
+
+-- 7
+SELECT
+	capital,
+	TRANSLATE(capital, 'áãåçéíñóú', 'aaaceinou') AS "translated_name"
+FROM countries;
+
+-- 8
+SELECT 
+	continent_name,
+	TRIM(LEADING ' ' FROM continent_name) AS "trim"
+FROM continents;
+
+-- 9
+SELECT 
+	continent_name,
+	TRIM(TRAILING ' ' FROM continent_name) AS "trim"
+FROM continents;
+
+-- 10
+SELECT
+	TRIM(LEADING 'M' FROM peak_name) AS left_trim,
+	TRIM(TRAILING 'm' FROM peak_name) AS right_trim
+FROM peaks;
+
+-- 11
+SELECT
+	mountain_range || ' ' || peak_name AS "mountain_information",
+	LENGTH(mountain_range || ' ' || peak_name) AS "characters_length",
+	BIT_LENGTH(mountain_range || ' ' || peak_name) AS "bits_of_a_tring"
+FROM mountains AS mt
+INNER JOIN peaks AS pk ON mt.id=pk.mountain_id;
+
+-- 12
+SELECT population, LENGTH(CAST(population AS VARCHAR))
+FROM countries;
+
+-- 13
+SELECT
+	peak_name,
+	LEFT(peak_name, 4),
+	LEFT(peak_name, -4)
+FROM peaks;
+
+-- 14
+SELECT
+	peak_name,
+	RIGHT(peak_name, 4),
+	RIGHT(peak_name, -4)
+FROM peaks;
+
+-- 15
+UPDATE countries
+SET iso_code = UPPER(LEFT(country_name, 3))
+WHERE iso_code IS NULL;
+
+-- 16
+UPDATE countries
+SET country_code = LOWER(REVERSE(country_code));
+
+-- 17
+SELECT elevation || ' ' || REPEAT('-',3) || REPEAT('>',2) || ' ' || peak_name
+FROM peaks
+WHERE elevation >= 4884;
+
+-- 18
+CREATE TABLE bookings_calculation
+AS
+SELECT
+	booked_for,
+	CAST(booked_for*50 AS NUMERIC) AS multiplication,
+	CAST(booked_for%50 AS NUMERIC) AS modulo
+FROM bookings
+WHERE apartment_id = 93;
+
+-- 19
+SELECT
+	latitude,
+	ROUND(latitude, 2) AS round,
+	TRUNC(latitude, 2) AS trunc
+FROM apartments;
+
+-- 20
+SELECT
+	longitude,
+	ABS(longitude) AS "abs"
+FROM apartments;
+
+-- 22
+SELECT
+	EXTRACT(YEAR FROM booked_at AT TIME ZONE 'UTC'),
+	EXTRACT(MONTH FROM booked_at AT TIME ZONE 'UTC'),
+	EXTRACT(DAY FROM booked_at AT TIME ZONE 'UTC'),
+	EXTRACT(HOUR FROM booked_at AT TIME ZONE 'UTC'),
+	EXTRACT(MINUTE FROM booked_at AT TIME ZONE 'UTC'),
+	CEILING(EXTRACT(SECOND FROM booked_at AT TIME ZONE 'UTC'))
+FROM bookings;
+
+-- 24
+SELECT
+	companion_full_name,
+	email
+FROM users
+WHERE companion_full_name ILIKE '%aNd%' AND email NOT LIKE '%@gmail';
+
+-- 25
+SELECT
+	LEFT(first_name, 2) AS "initials",
+	COUNT(*) AS "user_count"
+FROM users
+GROUP BY "initials"
+ORDER BY "user_count" DESC, "initials";
+
+-- 26
+SELECT
+	SUM(booked_for)
+FROM bookings
+WHERE apartment_id = 90;
+
+-- 27
+SELECT
+	AVG(multiplication)
+FROM bookings_calculation;

@@ -1,0 +1,50 @@
+to get login email/password => pgadmin4/view details/inspect (turn Raw JSON off)
+admin panel => pgadmin4/open with browser
+
+truncate table = delete from (MsSQL)
+
+/*
+
+vertically scalable - performance can be increased with better hardware
+data types
+    smallint
+    integer
+    bigint
+    decimal
+    numeric - more precise decimal
+    real
+    double precision
+    smallserial
+    serial
+    bigserial
+    date
+    time
+    timestamp - date + time
+    timestamptz - + timezone
+    
+*/
+
+/* query history */
+
+CREATE DATABASE gamebar;
+
+CREATE TABLE employees(
+	id SERIAL NOT NULL PRIMARY KEY,
+	name VARCHAR(20) NOT NULL
+);
+
+INSERT INTO employees(name) VALUES
+('Karlson'),
+('Ot Pokriva');
+
+SELECT * FROM employees;
+
+ALTER TABLE employees
+ADD salary DECIMAL(10,2);
+
+UPDATE employees
+SET salary = FLOOR(RANDOM()*10000)/100
+WHERE 1=1;
+
+ALTER TABLE employees
+ADD device_number INT;

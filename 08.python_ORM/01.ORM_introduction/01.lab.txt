@@ -1,0 +1,43 @@
+Django is based on MVT (MVC)
+	Model - returns data to Controller
+	View\Template - returns HTML data visualisation to Controller
+	Controller\View - requests data from Model, then gives data to View
+	
+Views are called Templates and Controllers are called Views in Django
+
+Mockaroo => create database entries
+
+To create project:
+	Create folder and open it in cmd
+	
+	python -m venv venv (when using skeleton create venv in same dir as manage.py)
+	
+	venv\Scripts\(activate/deactivate) => enables or disables venv
+
+	pip install django (pip install -r requirements.txt)
+	
+	django-admin startproject (projectname)
+	
+	manage.py runserver
+	
+	manage.py makemigrations => apply all changes to classes to database
+	
+	manage.py migrate => creates base tables for Django
+		default name for migrated tables => appname_tablename
+		
+	add application to INSTALLED_APPS in settings.py
+	
+	manage.py createsuperuser
+
+
+manage.py => main file
+asgi/wsgi.py => server config
+urls.py => maps requests to actions
+settings.py => project settings
+
+settings.py
+	name => db name
+	user => username
+	password => password
+	
+migrate before running for first time!

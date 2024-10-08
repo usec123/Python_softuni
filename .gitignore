@@ -1,3 +1,5 @@
 # ignore PyCharm temp files
 .idea
 *.pyc
+# ignore VSCode temp files
+.vscode

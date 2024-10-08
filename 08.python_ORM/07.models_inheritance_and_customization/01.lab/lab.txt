@@ -1,0 +1,84 @@
+inheritance of models
+    - create a new model based on an existing one
+    - child has all fields and methods of parent + additional fields/methods
+    - types:
+        - multi-table inheritance => both parent and child models generate tables
+        - abstract base classes => abstract parent does NOT generate a table
+        - proxy models => child does NOT generate a table
+
+
+abstract model:
+
+    class AbstractBaseModel(models.Model):
+        ...
+        class Meta:
+            abstract = True
+
+
+proxy model:
+
+    class BaseModel(models.Model):
+        ...
+    
+
+    class ProxyModel(BaseModel):
+        ...
+        class Meta:
+            proxy = True
+
+built-in methods
+    - provided by models.Model
+    - save() => save instance to db
+    - clean() => used for data validation before saving
+
+def save(self, *args, **kwargs):
+    ...
+    super().save(*args, **kwargs)
+
+def clean(self):
+    ...
+    # called by full_clean()
+
+
+custom fields
+    inherits django.db.models.Field or existing field class (e.g. models.CharField)
+        inherited type determines value passed to get_prep_value
+    used for custom data types, validation and serialization
+
+    methods
+        from_db_value() => converts field retrieved from db to Python data type
+        to_python() => converts value from serialized format to Python representation
+        get_prep_value() => prepares field values before saving them to db
+        validate() => exec custom validations
+        deconstruct() => returns tuple of current values of fields defined from __init__ args
+
+    class CustomField(models.Field):
+        description = 'desc'
+        def __init__(self, *args, **kwargs):
+            kwargs['max_length'] = 15
+            super().__init__(*args, **kwargs)
+
+        def to_python(self, value):
+            ...
+        
+        def get_prep_value(self, value):
+            ...
+
+        def from_db_value(self, value, expression, connection):
+            ...
+        
+    class MyModel(models.Model):
+        custom_field = CustomField()
+
+signals
+    # functions that are executed on a certain action (pre_save, post_save etc)
+
+    def post_saved(sender, instance, **kwargs):
+        ...
+    
+    class SomeModel(models.Model):
+        ...
+    
+
+    post_save.connect(post_saved, sender=SomeModel)
+    # this will be executed every time after an instance of SomeModel is saved

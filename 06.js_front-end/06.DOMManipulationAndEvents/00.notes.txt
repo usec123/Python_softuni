@@ -1,0 +1,42 @@
+parentElement.appendChild(childElement)
+parentElement.removeChild(childElement)
+childElement.remove()
+replaceChild() (doesn't work in judge)
+
+parent.append/prepend(child) => appends at the end/beginning of the parent (doesn't work in judge)
+parent.insertBefore(child)
+element.before/after(el) => inserts el before/after element in the same parent node
+
+document.createElement - factory pattern for creating elements
+document.createElement('p') => new <p>
+
+to move element in DOM you insert it in the new location
+
+element.cloneNode() => clones only the node of the element
+element.cloneNode(true) => clones the element + all of its child nodes
+
+-- events --
+focus/blur
+load
+resize
+dragstart/drop
+change
+submit
+reset
+
+
+how to add event listeners:
+    element.addEventListener('name' (without 'on'), (event) => ...)
+    element.event = (event) => ...
+    func = (event) => ... / <. onclick='func()'>
+
+.removeEventListener (requires function ref)
+
+events can overlap - if multiple items share the event location
+events are executed during bubbling phase - events from children are executed before events from parents
+
+.addEventListener('eventType', function, options?)
+options - { capture: true } (default false) - executes event during capturing phase of event propagation
+event.stopPropagation();
+
+event.preventDefault() => prevents default behaviour like form submission or a-tag page reloading
